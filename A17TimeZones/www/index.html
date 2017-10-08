@@ -20,12 +20,16 @@
             overflow: hidden;
         }
         p {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            z-index: 10;
             color: #fff;
         }
         </style>
         <script>
-            //document.write('<iframe frameborder="0" scrolling="no" src='+decodeURIComponent(window.location.search.split('=')[1].replace(/@/ig,'%'))+'">');
-            document.write('<p>'+decodeURIComponent(window.location.search.split('=')[1].replace(/@/ig,'%'))+'</p>');
+            document.write('<iframe frameborder="0" scrolling="no" src="'+decodeURIComponent(window.location.search.split('=')[1].replace(/@/ig,'%'))+'">');
+            //document.write('<p>'+decodeURIComponent(window.location.search.split('=')[1].replace(/@/ig,'%'))+'</p>');
         </script>
     </head>
     

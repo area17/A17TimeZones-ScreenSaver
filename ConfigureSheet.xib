@@ -85,12 +85,12 @@
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Foa-hl-CeJ" userLabel="Temperature Units">
                         <rect key="frame" x="11" y="127" width="178" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="Centigrade" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="aFw-t1-4ob" id="HMj-nl-ZP8" userLabel="Temperature Units">
+                        <popUpButtonCell key="cell" type="push" title="Celsius" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="aFw-t1-4ob" id="HMj-nl-ZP8" userLabel="Temperature Units">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="YFE-MT-AYo">
                                 <items>
-                                    <menuItem title="Centigrade" state="on" id="aFw-t1-4ob"/>
+                                    <menuItem title="Celsius" state="on" id="aFw-t1-4ob"/>
                                     <menuItem title="Fahrenheit" id="rm5-Fb-4XT"/>
                                 </items>
                             </menu>
@@ -129,7 +129,7 @@ DQ
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="viz-Xz-dn9">
                         <rect key="frame" x="8" y="16" width="174" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="AREA 17 Time Zones v1.0.15" id="vyh-ZA-XU5">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="AREA 17 Time Zones v1.0.18" id="vyh-ZA-XU5">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
