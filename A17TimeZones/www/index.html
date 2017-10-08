@@ -19,9 +19,13 @@
             background: #000;
             overflow: hidden;
         }
+        p {
+            color: #fff;
+        }
         </style>
         <script>
-            document.write('<iframe frameborder="0" scrolling="no" src='+decodeURIComponent(window.location.search.split('=')[1].replace(/@/ig,'%'))+'">');
+            //document.write('<iframe frameborder="0" scrolling="no" src='+decodeURIComponent(window.location.search.split('=')[1].replace(/@/ig,'%'))+'">');
+            document.write('<p>'+decodeURIComponent(window.location.search.split('=')[1].replace(/@/ig,'%'))+'</p>');
         </script>
     </head>
     

@@ -4,7 +4,7 @@
 
 #import "A17TimeZones.h"
 #import <WebKit/WebKit.h>
-
+#define ModuleName @"com.github.area17.A17TimeZones"
 
 @implementation A17TimeZones
 
@@ -16,9 +16,44 @@ NSString * base_url = @"http@3A@2F@2Fa17_timezones.localip@2F@3Fscreensaver@3Dtr
     self = [super initWithFrame:frame isPreview:isPreview];
 
     if (self) {
+        
+        defaults = [ScreenSaverDefaults defaultsForModuleWithName:ModuleName];
+        [defaults registerDefaults:@{@"ClockType": @"Digital",
+                                     @"DigitalFormat": @"12 hour",
+                                     @"Temperature": @"YES",
+                                     @"TemperatureUnits": @"Centigrade",
+                                     @"Weather": @"NO"}];
+        
+        NSString * url = [static_url stringByAppendingString:base_url];
+        
+        NSString * paramClockType = @"@26clocktype@3D";
+        NSString * paramDigitalFormat = @"@26digitalformat@3D";
+        //NSString * paramTemperature = @"@26temperature@3D";
+        NSString * paramTemperatureUnits = @"@26TemperatureUnits@3D";
+        //NSString * paramWeather = @"@26weather@3D";
+        
+        NSString * valueClockType = [[defaults objectForKey:@"ClockType"] lowercaseString];
+        NSString * valueDigitalFormat = [[defaults objectForKey:@"DigitalFormat"] lowercaseString];
+        //NSString * valueTemperature = [[defaults objectForKey:@"Temperature"] lowercaseString];
+        NSString * valueTemperatureUnits = [[defaults objectForKey:@"TemperatureUnits"] lowercaseString];
+        //NSString * valueWeather = [[defaults objectForKey:@"Weather"] lowercaseString];
+        
+        paramClockType = [paramClockType stringByAppendingString:valueClockType];
+        paramDigitalFormat = [paramDigitalFormat stringByAppendingString:valueDigitalFormat];
+        //paramTemperature = [paramTemperature stringByAppendingString:valueTemperature];
+        paramTemperatureUnits = [paramTemperatureUnits stringByAppendingString:valueTemperatureUnits];
+        //paramWeather = [paramWeather stringByAppendingString:valueWeather];
+        
+        url = [url stringByAppendingString:paramClockType];
+        url = [url stringByAppendingString:paramDigitalFormat];
+        //url = [url stringByAppendingString:paramTemperature];
+        url = [url stringByAppendingString:paramTemperatureUnits];
+        //url = [url stringByAppendingString:paramWeather];
+        /**/
+        
         webView = [[WebView alloc] initWithFrame:[self bounds] frameName:nil groupName:nil];
-
-        [webView setMainFrameURL:[NSString stringWithFormat:[static_url stringByAppendingString:base_url], [[NSBundle bundleForClass:[self class]] resourcePath]]];
+        
+        [webView setMainFrameURL:[NSString stringWithFormat:url, [[NSBundle bundleForClass:[self class]] resourcePath]]];
 
         [self addSubview:webView];
     }
@@ -48,12 +83,38 @@ NSString * base_url = @"http@3A@2F@2Fa17_timezones.localip@2F@3Fscreensaver@3Dtr
 
 - (BOOL)hasConfigureSheet
 {
-    return NO;
+    return YES;
 }
 
 - (NSWindow*)configureSheet
 {
-    return nil;
+    if (!configSheet)
+    {
+        if (![NSBundle loadNibNamed:@"ConfigureSheet" owner:self])
+        //if (![[NSBundle mainBundle] loadNibNamed:@"ConfigureSheet" owner:self topLevelObjects:nil])
+        {
+            NSLog( @"Failed to load configure sheet." );
+            NSBeep();
+        }
+    }
+    
+    return configSheet;
+}
+
+
+// IBActions
+
+- (IBAction) okClick:(id)sender
+{
+        
+    [defaults setValue:[clockType titleOfSelectedItem] forKey:@"ClockType"];
+    [defaults setValue:[digitalFormat titleOfSelectedItem] forKey:@"DigitalFormat"];
+    [defaults setValue:[temperatureUnits titleOfSelectedItem] forKey:@"TemperatureUnits"];
+    [defaults setBool:[temperature state] forKey:@"Temperature"];
+    [defaults setBool:[weather state] forKey:@"Weather"];
+    [defaults synchronize];
+    
+    [[NSApplication sharedApplication] endSheet:configSheet];
 }
 
 @end
