@@ -7,6 +7,13 @@
 
 @interface A17TimeZones : ScreenSaverView
 {
+    IBOutlet id configSheet;
+    
+    IBOutlet NSPopUpButton *clockType;
+    IBOutlet NSPopUpButton *digitalFormat;
+
+    ScreenSaverDefaults *defaults;
+    
     WebView *webView;
 }
 
