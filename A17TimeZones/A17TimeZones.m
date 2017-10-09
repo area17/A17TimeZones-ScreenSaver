@@ -97,6 +97,24 @@ NSString * base_url = @"http@3A@2F@2Fa17_timezones.localip@2F@3Fscreensaver@3Dtr
         }
     }
     
+    
+    // apply defaults
+    [clockType selectItemWithTitle: [defaults objectForKey:@"ClockType"]];
+    [digitalFormat selectItemWithTitle: [defaults objectForKey:@"DigitalFormat"]];
+    [temperatureUnits selectItemWithTitle: [defaults objectForKey:@"TemperatureUnits"]];
+    
+    if ([defaults boolForKey:@"Temperature"]){
+        [temperature setState:NSOnState];
+    } else {
+        [temperature setState:NSOffState];
+    }
+    
+    if ([defaults boolForKey:@"Weather"]){
+        [weather setState:NSOnState];
+    } else {
+        [weather setState:NSOffState];
+    }
+    
     return configSheet;
 }
 
