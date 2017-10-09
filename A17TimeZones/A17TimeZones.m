@@ -8,9 +8,6 @@
 
 @implementation A17TimeZones
 
-NSString * static_url = @"file://%@/www/index.html?url=";
-NSString * base_url = @"http@3A@2F@2Fa17_timezones.localip@2F@3Fscreensaver@3Dtrue";
-
 - (instancetype)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
     self = [super initWithFrame:frame isPreview:isPreview];
@@ -24,26 +21,31 @@ NSString * base_url = @"http@3A@2F@2Fa17_timezones.localip@2F@3Fscreensaver@3Dtr
                                      @"TemperatureUnits": @"Celsius",
                                      @"Weather": @"NO"}];
         
+        // set up url to add in a param of the static page
+        // url is urlencoded, with % swapped for @ because xcode cries about % in strings
+        NSString * static_url = @"file://%@/www/index.html?url=";
+        //NSString * base_url = @"http@3A@2F@2Fa17_timezones.localip@2F@3Fscreensaver@3Dtrue";
+        NSString * base_url = @"https@3A@2F@2Ftime.area17.com@2F@3Fscreensaver@3Dtrue";
         NSString * url = [static_url stringByAppendingString:base_url];
-        
+        // the various params we can set
         NSString * paramClockType = @"@26clocktype@3D";
         NSString * paramDigitalFormat = @"@26digitalformat@3D";
         NSString * paramTemperature = @"@26showtemperature@3D";
         NSString * paramTemperatureUnits = @"@26temperatureunit@3D";
         NSString * paramWeather = @"@26showcurrentweather@3D";
-        
+        // the values we want to pass through
         NSString * valueClockType = [[defaults objectForKey:@"ClockType"] lowercaseString];
         NSString * valueDigitalFormat = [[defaults objectForKey:@"DigitalFormat"] lowercaseString];
         NSString * valueTemperature = (([defaults boolForKey:@"Temperature"]) ? @"true" : @"false");
         NSString * valueTemperatureUnits = [[defaults objectForKey:@"TemperatureUnits"] lowercaseString];
         NSString * valueWeather = (([defaults boolForKey:@"Weather"]) ? @"true" : @"false");
-        
+        // joining the params to their values
         paramClockType = [paramClockType stringByAppendingString:valueClockType];
         paramDigitalFormat = [paramDigitalFormat stringByAppendingString:valueDigitalFormat];
         paramTemperature = [paramTemperature stringByAppendingString:valueTemperature];
         paramTemperatureUnits = [paramTemperatureUnits stringByAppendingString:valueTemperatureUnits];
         paramWeather = [paramWeather stringByAppendingString:valueWeather];
-        
+        // joining the params to the urls
         url = [url stringByAppendingString:paramClockType];
         url = [url stringByAppendingString:paramDigitalFormat];
         url = [url stringByAppendingString:paramWeather];
