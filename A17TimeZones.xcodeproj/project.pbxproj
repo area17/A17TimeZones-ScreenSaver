@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		AF5BE0DF1F893DE8006F3162 /* ConfigureSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF5BE0DE1F893DE8006F3162 /* ConfigureSheet.xib */; };
 		AFC323FB1F8565DA00877EC2 /* A17TimeZones.m in Sources */ = {isa = PBXBuildFile; fileRef = D87E3F7D1A3DED8300B6BFF9 /* A17TimeZones.m */; };
+		AFF7C80B1F8E832700979D10 /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF7C8091F8E832700979D10 /* thumbnail.png */; };
+		AFF7C80C1F8E832700979D10 /* thumbnail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF7C80A1F8E832700979D10 /* thumbnail@2x.png */; };
 		D87E3F7C1A3DED8300B6BFF9 /* A17TimeZones.h in Headers */ = {isa = PBXBuildFile; fileRef = D87E3F7B1A3DED8300B6BFF9 /* A17TimeZones.h */; };
 		D87E3F851A3DEE3C00B6BFF9 /* www in Resources */ = {isa = PBXBuildFile; fileRef = D87E3F841A3DEE3C00B6BFF9 /* www */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AF5BE0DE1F893DE8006F3162 /* ConfigureSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConfigureSheet.xib; path = ../ConfigureSheet.xib; sourceTree = "<group>"; };
+		AFF7C8091F8E832700979D10 /* thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbnail.png; sourceTree = "<group>"; };
+		AFF7C80A1F8E832700979D10 /* thumbnail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbnail@2x.png"; sourceTree = "<group>"; };
 		D87E3F761A3DED8300B6BFF9 /* A17TimeZones.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = A17TimeZones.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		D87E3F7A1A3DED8300B6BFF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D87E3F7B1A3DED8300B6BFF9 /* A17TimeZones.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = A17TimeZones.h; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 		D87E3F781A3DED8300B6BFF9 /* A17TimeZones */ = {
 			isa = PBXGroup;
 			children = (
+				AFF7C8091F8E832700979D10 /* thumbnail.png */,
+				AFF7C80A1F8E832700979D10 /* thumbnail@2x.png */,
 				AF5BE0DE1F893DE8006F3162 /* ConfigureSheet.xib */,
 				D87E3F7B1A3DED8300B6BFF9 /* A17TimeZones.h */,
 				D87E3F7D1A3DED8300B6BFF9 /* A17TimeZones.m */,
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF5BE0DF1F893DE8006F3162 /* ConfigureSheet.xib in Resources */,
+				AFF7C80C1F8E832700979D10 /* thumbnail@2x.png in Resources */,
 				D87E3F851A3DEE3C00B6BFF9 /* www in Resources */,
+				AFF7C80B1F8E832700979D10 /* thumbnail.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
