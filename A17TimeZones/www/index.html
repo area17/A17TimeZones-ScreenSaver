@@ -19,6 +19,13 @@
             background: #000;
             overflow: hidden;
         }
+        iframe {
+            opacity: 0;
+            transition: opacity .2s linear;
+        }
+        iframe.s-loaded {
+            opacity: 1;
+        }
         p {
             position: fixed;
             left: 20px;
@@ -27,14 +34,27 @@
             color: #fff;
         }
         </style>
-        <script>
-            document.write('<iframe frameborder="0" scrolling="no" src="'+decodeURIComponent(window.location.search.split('=')[1].replace(/@/ig,'%'))+'">');
-            //document.write('<p>'+decodeURIComponent(window.location.search.split('=')[1].replace(/@/ig,'%'))+'</p>');
-        </script>
     </head>
     
     <body>
-
+        <iframe id="iframe" frameborder="0" scrolling="no"></iframe>
+        <script>
+        var liveUrl = decodeURIComponent(window.location.search.split('=')[1].replace(/@/ig,'%'));
+        var iframe = document.getElementById('iframe');
+        var online = window.navigator.onLine;
+        var timer;
+        iframe.addEventListener('load', function() {
+          iframe.classList.add('s-loaded');
+          clearTimeout(timer);
+        });
+        if (online) {
+          iframe.src = liveUrl;
+          timer = setTimeout(function(){
+            iframe.src = 'digital.html';
+          },3000);
+        } else {
+          iframe.src = 'digital.html';
+        }
+        </script>
     </body>
-    
 </html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html class="s-screensaver s-digital">
+<head>
+  <title>A17</title>
+  <style>
+    html,
+    body,
+    div,
+    span,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    abbr,
+    address,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    samp,
+    small,
+    strong,
+    sub,
+    sup,
+    var,
+    b,
+    i,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    dialog,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section,
+    time,
+    mark,
+    audio,
+    video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      font: inherit;
+      font-size: 100%;
+      vertical-align: baseline;
+      outline: 0;
+    }
+
+    article,
+    aside,
+    dialog,
+    figure,
+    footer,
+    header,
+    hgroup,
+    nav,
+    section,
+    main {
+      display: block;
+    }
+
+    html {
+      overflow-y: scroll;
+      overflow: -moz-scrollbars-vertical;
+      box-sizing: border-box;
+      touch-action: manipulation;
+    }
+
+    body {
+      line-height: 1;
+    }
+
+    blockquote,
+    q {
+      quotes: none;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+      content: '';
+      content: none;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+      touch-action: inherit;
+    }
+
+    .logo {
+      display: block;
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      width: auto;
+      height: 40px;
+      color: #fff;
+    }
+
+    @media screen and (min-width: 768px) {
+      .logo {
+        top: auto;
+        height: 70px;
+        bottom: calc(50% - 35px);
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .logo {
+        left: 50px;
+        height: 80px;
+        bottom: calc(50% - 40px);
+      }
+    }
+
+    .m-digital {
+      color: #fff;
+      font-size: 16vw;
+      text-align: justify;
+      text-align-last: justify;
+    }
+
+    @media screen and (min-width: 768px) {
+      .m-digital {
+        font-size: 100px;
+        line-height: 110px;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .m-digital {
+        font-size: 110px;
+      }
+    }
+
+    .m-digital.m-digital--24 {
+      font-size: 22vw;
+    }
+
+    @media screen and (min-width: 768px) {
+      .m-digital.m-digital--24 {
+        font-size: 110px;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .m-digital.m-digital--24 {
+        font-size: 110px;
+      }
+    }
+
+
+    .o-clocks {
+      display: flex;
+      flex-flow: column nowrap;
+      min-height: 100vh;
+      padding: 40px 20px 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+      .o-clocks {
+        max-height: 100vh;
+        padding-top: 0;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .o-clocks {
+        padding: 10px 50px 50px;
+      }
+    }
+
+    .o-clocks .m-digital {
+      flex: 0 0 auto;
+      width: 100%;
+      margin: 70px 0 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+      .o-clocks .m-digital {
+        position: absolute;
+        left: 50px;
+        right: 50px;
+        top: calc(50% - 55px);
+        width: auto;
+        margin-top: 0;
+        padding-left: 20%;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .o-clocks .m-digital {
+        padding-left: 25%;
+      }
+    }
+
+    @media screen and (min-width: 1280px) {
+      .o-clocks .m-digital {
+        padding-left: 33.33%;
+      }
+    }
+
+    html {
+      position: relative;
+      right: 50%;
+      left: 50%;
+      width: 100vw;
+      min-height: 100%;
+      margin-right: -50vw;
+      margin-left: -50vw;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font: 15px/25px Helvetica, Arial, sans-serif;
+      font-variant-numeric: lining-nums;
+      font-feature-settings: 'kern', 'lnum', 'liga';
+      font-kerning: normal;
+      text-rendering: optimizeLegibility;
+      font-variant-ligatures: common-ligatures;
+      text-size-adjust: 100%;
+    }
+
+    body::after {
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      width: 1px;
+      height: 1px;
+      margin: -1px 0 0 -1px;
+      color: transparent;
+      font: 0/0 a;
+      text-shadow: none;
+    }
+
+    @media screen and (max-width: 479px) {
+      head {
+        font-family: "xsmall";
+      }
+      body::after {
+        content: "xsmall";
+      }
+    }
+
+    @media screen and (min-width: 480px) and (max-width: 767px) {
+      head {
+        font-family: "small";
+      }
+      body::after {
+        content: "small";
+      }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      head {
+        font-family: "medium";
+      }
+      body::after {
+        content: "medium";
+      }
+    }
+
+    @media screen and (min-width: 1024px) and (max-width: 1279px) {
+      head {
+        font-family: "large";
+      }
+      body::after {
+        content: "large";
+      }
+    }
+
+    @media screen and (min-width: 1280px) and (max-width: 1479px) {
+      head {
+        font-family: "xlarge";
+      }
+      body::after {
+        content: "xlarge";
+      }
+    }
+
+    @media screen and (min-width: 1480px) {
+      head {
+        font-family: "xxlarge";
+      }
+      body::after {
+        content: "xxlarge";
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="o-clocks">
+    <svg class="logo" width="84px" height="53px" viewBox="0 0 84 53">
+      <path fill="#fff" d="M30.711,0l21.2,53h-10.6l-4.476-12H15.165l-4.476,12h-10.6l21.2-53H30.711z M33.773,33L26,12.484L18.227,33H33.773z
+         M83.8,0L62.6,53h-5.3L78.5,0H83.8z"/>
+    </svg>
+    <p class="m-digital" id="digital"></p>
+  </div>
+<script>
+  var container = document.getElementById('digital');
+  var minutesTemp = 99;
+  var secondInterval, str;
+
+  function _updateDigitalTime(override) {
+    var format = '12';
+    var time = new Date();
+    var h = time.getHours();
+    var m = time.getMinutes();
+    var s = time.getSeconds();
+    var pm = (h > 12);
+    //
+    h = (format !== '24' && h > 12) ? h - 12 : h;
+    if (m < 10) {
+      m = '0' + m;
+    }
+    if (s < 10) {
+      s = '0' + s;
+    }
+    //
+    var newStr = h + ':' + m + ':' + s;
+    if (format !== '24') {
+      newStr = newStr + ' <sup>' + (pm ? 'PM' : 'AM') + '</sup>';
+    }
+    //
+    if(format === '24') {
+      container.classList.add('m-digital--24');
+    } else {
+      container.classList.remove('m-digital--24');
+    }
+    //
+    if (str !== newStr) {
+      str = newStr;
+      container.innerHTML = str;
+    }
+  }
+
+  function _setIntervals() {
+    secondInterval = setInterval(_updateDigitalTime, 1000);
+  }
+
+  _updateDigitalTime();
+  _setIntervals();
+</script>
+</body>
+</html>
