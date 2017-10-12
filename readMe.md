@@ -1,5 +1,7 @@
 # A17 Time Zones Screen Saver
 
+v.1.0.23
+
 Displays <a href="https://time.area17.com/" target="blank">time.area17.com</a> within a macOS screen saver. Passes controllable parameters to control the display of clock type, clock format, temperature units and display of temperature and weather; more info on these parameters in the [time repository](https://github.com/area17/time).
 
 ## Issues/Contributing/Discussion
