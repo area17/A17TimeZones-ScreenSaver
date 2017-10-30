@@ -23,7 +23,7 @@
         
         defaults = [ScreenSaverDefaults defaultsForModuleWithName:ModuleName];
         [defaults registerDefaults:@{@"ClockType": @"Analogue",
-                                     @"DigitalFormat": @"24 hour",
+                                     @"DigitalFormat": ((numberOfMatches > 0) ? @"12 hour" : @"24 hour"),
                                      @"Weather": @"YES",
                                      @"TemperatureUnits": ((numberOfMatches > 0) ? @"Fahrenheit" : @"Celsius"),
                                      @"Animated": @"NO"}];
