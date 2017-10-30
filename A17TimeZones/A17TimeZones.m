@@ -14,11 +14,18 @@
 
     if (self) {
         
+        // guessing timezone to set default temperature unit
+        NSTimeZone *timeZone = [NSTimeZone localTimeZone];
+        NSString *tzName = [timeZone name];
+        NSError *error = NULL;
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"Adak|Anchorage|Boise|Chicago|Denver|Detroit|Indiana|Juneau|Kentucky|Los_Angeles|Menominee|Metlakatla|New_York|Nome|North_Dakota|Phoenix|Sitka|Yakutat|Honolulu" options:NSRegularExpressionCaseInsensitive error:&error];
+        NSUInteger numberOfMatches = [regex numberOfMatchesInString:tzName options:0 range:NSMakeRange(0, [tzName length])];
+        
         defaults = [ScreenSaverDefaults defaultsForModuleWithName:ModuleName];
         [defaults registerDefaults:@{@"ClockType": @"Analogue",
                                      @"DigitalFormat": @"24 hour",
                                      @"Weather": @"YES",
-                                     @"TemperatureUnits": @"Celsius",
+                                     @"TemperatureUnits": ((numberOfMatches > 0) ? @"Fahrenheit" : @"Celsius"),
                                      @"Animated": @"NO"}];
         
         // set up url to add in a param of the static page
