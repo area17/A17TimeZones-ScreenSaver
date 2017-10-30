@@ -15,11 +15,11 @@
     if (self) {
         
         defaults = [ScreenSaverDefaults defaultsForModuleWithName:ModuleName];
-        [defaults registerDefaults:@{@"ClockType": @"Digital",
-                                     @"DigitalFormat": @"12 hour",
-                                     @"Temperature": @"YES",
+        [defaults registerDefaults:@{@"ClockType": @"Analogue",
+                                     @"DigitalFormat": @"24 hour",
+                                     @"Weather": @"YES",
                                      @"TemperatureUnits": @"Celsius",
-                                     @"Weather": @"NO"}];
+                                     @"Animated": @"NO"}];
         
         // set up url to add in a param of the static page
         // url is urlencoded, with % swapped for @ because xcode cries about % in strings
@@ -30,27 +30,27 @@
         // the various params we can set
         NSString * paramClockType = @"@26clocktype@3D";
         NSString * paramDigitalFormat = @"@26digitalformat@3D";
-        NSString * paramTemperature = @"@26showtemperature@3D";
-        NSString * paramTemperatureUnits = @"@26temperatureunit@3D";
         NSString * paramWeather = @"@26showcurrentweather@3D";
+        NSString * paramTemperatureUnits = @"@26temperatureunit@3D";
+        NSString * paramAnimated = @"@26animtedicons@3D";
         // the values we want to pass through
         NSString * valueClockType = [[defaults objectForKey:@"ClockType"] lowercaseString];
         NSString * valueDigitalFormat = [[defaults objectForKey:@"DigitalFormat"] lowercaseString];
-        NSString * valueTemperature = (([defaults boolForKey:@"Temperature"]) ? @"true" : @"false");
-        NSString * valueTemperatureUnits = [[defaults objectForKey:@"TemperatureUnits"] lowercaseString];
         NSString * valueWeather = (([defaults boolForKey:@"Weather"]) ? @"true" : @"false");
+        NSString * valueTemperatureUnits = [[defaults objectForKey:@"TemperatureUnits"] lowercaseString];
+        NSString * valueAnimated = (([defaults boolForKey:@"Animated"]) ? @"true" : @"false");
         // joining the params to their values
         paramClockType = [paramClockType stringByAppendingString:valueClockType];
         paramDigitalFormat = [paramDigitalFormat stringByAppendingString:valueDigitalFormat];
-        paramTemperature = [paramTemperature stringByAppendingString:valueTemperature];
-        paramTemperatureUnits = [paramTemperatureUnits stringByAppendingString:valueTemperatureUnits];
         paramWeather = [paramWeather stringByAppendingString:valueWeather];
+        paramTemperatureUnits = [paramTemperatureUnits stringByAppendingString:valueTemperatureUnits];
+        paramAnimated = [paramAnimated stringByAppendingString:valueAnimated];
         // joining the params to the urls
         url = [url stringByAppendingString:paramClockType];
         url = [url stringByAppendingString:paramDigitalFormat];
         url = [url stringByAppendingString:paramWeather];
-        url = [url stringByAppendingString:paramTemperature];
         url = [url stringByAppendingString:paramTemperatureUnits];
+        url = [url stringByAppendingString:paramAnimated];
         
         webView = [[WebView alloc] initWithFrame:[self bounds] frameName:nil groupName:nil];
         
@@ -105,16 +105,16 @@
     [digitalFormat selectItemWithTitle: [defaults objectForKey:@"DigitalFormat"]];
     [temperatureUnits selectItemWithTitle: [defaults objectForKey:@"TemperatureUnits"]];
     
-    if ([defaults boolForKey:@"Temperature"]){
-        [temperature setState:NSOnState];
-    } else {
-        [temperature setState:NSOffState];
-    }
-    
     if ([defaults boolForKey:@"Weather"]){
         [weather setState:NSOnState];
     } else {
         [weather setState:NSOffState];
+    }
+    
+    if ([defaults boolForKey:@"Animated"]){
+        [animated setState:NSOnState];
+    } else {
+        [animated setState:NSOffState];
     }
     
     return configSheet;
@@ -128,8 +128,8 @@
     [defaults setValue:[clockType titleOfSelectedItem] forKey:@"ClockType"];
     [defaults setValue:[digitalFormat titleOfSelectedItem] forKey:@"DigitalFormat"];
     [defaults setValue:[temperatureUnits titleOfSelectedItem] forKey:@"TemperatureUnits"];
-    [defaults setBool:[temperature state] forKey:@"Temperature"];
     [defaults setBool:[weather state] forKey:@"Weather"];
+    [defaults setBool:[animated state] forKey:@"Animated"];
     [defaults synchronize];
     
     [[NSApplication sharedApplication] endSheet:configSheet];

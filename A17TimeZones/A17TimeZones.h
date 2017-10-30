@@ -12,8 +12,8 @@
     IBOutlet NSPopUpButton *clockType;
     IBOutlet NSPopUpButton *digitalFormat;
     IBOutlet NSPopUpButton *temperatureUnits;
-    IBOutlet NSButtonCell *temperature;
     IBOutlet NSButtonCell *weather;
+    IBOutlet NSButtonCell *animated;
 
     ScreenSaverDefaults *defaults;
     
