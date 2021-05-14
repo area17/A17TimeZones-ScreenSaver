@@ -8,7 +8,7 @@
 @interface A17TimeZones : ScreenSaverView
 {
     IBOutlet id configSheet;
-    
+
     IBOutlet NSPopUpButton *clockType;
     IBOutlet NSPopUpButton *digitalFormat;
     IBOutlet NSPopUpButton *temperatureUnits;
@@ -16,8 +16,8 @@
     IBOutlet NSButtonCell *animated;
 
     ScreenSaverDefaults *defaults;
-    
-    WebView *webView;
+
+    WKWebView *webView;
 }
 
 @end

@@ -12,7 +12,6 @@
 		AFF7C80B1F8E832700979D10 /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF7C8091F8E832700979D10 /* thumbnail.png */; };
 		AFF7C80C1F8E832700979D10 /* thumbnail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF7C80A1F8E832700979D10 /* thumbnail@2x.png */; };
 		D87E3F7C1A3DED8300B6BFF9 /* A17TimeZones.h in Headers */ = {isa = PBXBuildFile; fileRef = D87E3F7B1A3DED8300B6BFF9 /* A17TimeZones.h */; };
-		D87E3F851A3DEE3C00B6BFF9 /* www in Resources */ = {isa = PBXBuildFile; fileRef = D87E3F841A3DEE3C00B6BFF9 /* www */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +22,6 @@
 		D87E3F7A1A3DED8300B6BFF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D87E3F7B1A3DED8300B6BFF9 /* A17TimeZones.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = A17TimeZones.h; sourceTree = "<group>"; };
 		D87E3F7D1A3DED8300B6BFF9 /* A17TimeZones.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = A17TimeZones.m; sourceTree = "<group>"; };
-		D87E3F841A3DEE3C00B6BFF9 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = A17TimeZones/www; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +38,6 @@
 		D87E3F6C1A3DED8300B6BFF9 = {
 			isa = PBXGroup;
 			children = (
-				D87E3F841A3DEE3C00B6BFF9 /* www */,
 				D87E3F781A3DED8300B6BFF9 /* A17TimeZones */,
 				D87E3F771A3DED8300B6BFF9 /* Products */,
 			);
@@ -113,7 +110,7 @@
 		D87E3F6D1A3DED8300B6BFF9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Mike Byrne";
 				TargetAttributes = {
 					D87E3F751A3DED8300B6BFF9 = {
@@ -123,10 +120,11 @@
 			};
 			buildConfigurationList = D87E3F701A3DED8300B6BFF9 /* Build configuration list for PBXProject "A17TimeZones" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = D87E3F6C1A3DED8300B6BFF9;
 			productRefGroup = D87E3F771A3DED8300B6BFF9 /* Products */;
@@ -145,7 +143,6 @@
 			files = (
 				AF5BE0DF1F893DE8006F3162 /* ConfigureSheet.xib in Resources */,
 				AFF7C80C1F8E832700979D10 /* thumbnail@2x.png in Resources */,
-				D87E3F851A3DEE3C00B6BFF9 /* www in Resources */,
 				AFF7C80B1F8E832700979D10 /* thumbnail.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,18 +165,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -212,18 +219,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -251,6 +268,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = A17TimeZones/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = A17TimeZones;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = saver;
@@ -263,6 +281,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = A17TimeZones/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = A17TimeZones;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = saver;

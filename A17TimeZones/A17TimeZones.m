@@ -13,45 +13,48 @@
     self = [super initWithFrame:frame isPreview:isPreview];
 
     if (self) {
-        
+
         // guessing timezone to set default temperature unit
         NSTimeZone *timeZone = [NSTimeZone localTimeZone];
         NSString *tzName = [timeZone name];
         NSError *error = NULL;
         NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"Adak|Anchorage|Boise|Chicago|Denver|Detroit|Indiana|Juneau|Kentucky|Los_Angeles|Menominee|Metlakatla|New_York|Nome|North_Dakota|Phoenix|Sitka|Yakutat|Honolulu" options:NSRegularExpressionCaseInsensitive error:&error];
         NSUInteger numberOfMatches = [regex numberOfMatchesInString:tzName options:0 range:NSMakeRange(0, [tzName length])];
-        
+
         defaults = [ScreenSaverDefaults defaultsForModuleWithName:ModuleName];
         [defaults registerDefaults:@{@"ClockType": @"Analogue",
                                      @"DigitalFormat": ((numberOfMatches > 0) ? @"12 hour" : @"24 hour"),
                                      @"Weather": @"YES",
                                      @"TemperatureUnits": ((numberOfMatches > 0) ? @"Fahrenheit" : @"Celsius"),
                                      @"Animated": @"NO"}];
-        
+
         // set up url to add in a param of the static page
-        // url is urlencoded, with % swapped for @ because xcode cries about % in strings
-        NSString * static_url = @"file://%@/www/index.html?url=";
-        //NSString * base_url = @"http@3A@2F@2Fa17_timezones.localip@2F@3Fscreensaver@3Dtrue";
-        NSString * base_url = @"https@3A@2F@2Ftime.area17.com@2F@3Fscreensaver@3Dtrue";
-        NSString * url = [static_url stringByAppendingString:base_url];
+        NSString * url = @"https://time.area17.com/?screensaver=true";
+        
         // the various params we can set
-        NSString * paramClockType = @"@26clocktype@3D";
-        NSString * paramDigitalFormat = @"@26digitalformat@3D";
-        NSString * paramWeather = @"@26showcurrentweather@3D";
-        NSString * paramTemperatureUnits = @"@26temperatureunit@3D";
-        NSString * paramAnimated = @"@26animtedicons@3D";
+        NSString * paramClockType = @"&clocktype=";
+        NSString * paramDigitalFormat = @"&digitalformat=";
+        NSString * paramWeather = @"&showcurrentweather=";
+        NSString * paramTemperatureUnits = @"&temperatureunit=";
+        NSString * paramAnimated = @"&animtedicons=";
+        
         // the values we want to pass through
         NSString * valueClockType = [[defaults objectForKey:@"ClockType"] lowercaseString];
         NSString * valueDigitalFormat = [[defaults objectForKey:@"DigitalFormat"] lowercaseString];
         NSString * valueWeather = (([defaults boolForKey:@"Weather"]) ? @"true" : @"false");
         NSString * valueTemperatureUnits = [[defaults objectForKey:@"TemperatureUnits"] lowercaseString];
         NSString * valueAnimated = (([defaults boolForKey:@"Animated"]) ? @"true" : @"false");
+        
+        // convert space to %20 else NSURL becomes invalid somehow
+        valueDigitalFormat = [valueDigitalFormat stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        
         // joining the params to their values
         paramClockType = [paramClockType stringByAppendingString:valueClockType];
         paramDigitalFormat = [paramDigitalFormat stringByAppendingString:valueDigitalFormat];
         paramWeather = [paramWeather stringByAppendingString:valueWeather];
         paramTemperatureUnits = [paramTemperatureUnits stringByAppendingString:valueTemperatureUnits];
         paramAnimated = [paramAnimated stringByAppendingString:valueAnimated];
+        
         // joining the params to the urls
         url = [url stringByAppendingString:paramClockType];
         url = [url stringByAppendingString:paramDigitalFormat];
@@ -59,34 +62,14 @@
         url = [url stringByAppendingString:paramTemperatureUnits];
         url = [url stringByAppendingString:paramAnimated];
         
-        webView = [[WebView alloc] initWithFrame:[self bounds] frameName:nil groupName:nil];
+        // make web view and request url
+        webView = [[WKWebView alloc] initWithFrame:[self bounds]];
+        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
         
-        [webView setMainFrameURL:[NSString stringWithFormat:url, [[NSBundle bundleForClass:[self class]] resourcePath]]];
-
         [self addSubview:webView];
     }
 
     return self;
-}
-
-- (void)startAnimation
-{
-    [super startAnimation];
-}
-
-- (void)stopAnimation
-{
-    [super stopAnimation];
-}
-
-- (void)drawRect:(NSRect)rect
-{
-    [super drawRect:rect];
-}
-
-- (void)animateOneFrame
-{
-    return;
 }
 
 - (BOOL)hasConfigureSheet
@@ -98,32 +81,31 @@
 {
     if (!configSheet)
     {
-        if (![NSBundle loadNibNamed:@"ConfigureSheet" owner:self])
-        //if (![[NSBundle mainBundle] loadNibNamed:@"ConfigureSheet" owner:self topLevelObjects:nil])
+        if ( ! [[NSBundle bundleForClass:[self class]] loadNibNamed:@"ConfigureSheet" owner:self  topLevelObjects:nil] )
         {
             NSLog( @"Failed to load configure sheet." );
             NSBeep();
         }
     }
-    
-    
+
+
     // apply defaults
     [clockType selectItemWithTitle: [defaults objectForKey:@"ClockType"]];
     [digitalFormat selectItemWithTitle: [defaults objectForKey:@"DigitalFormat"]];
     [temperatureUnits selectItemWithTitle: [defaults objectForKey:@"TemperatureUnits"]];
-    
+
     if ([defaults boolForKey:@"Weather"]){
         [weather setState:NSOnState];
     } else {
         [weather setState:NSOffState];
     }
-    
+
     if ([defaults boolForKey:@"Animated"]){
         [animated setState:NSOnState];
     } else {
         [animated setState:NSOffState];
     }
-    
+
     return configSheet;
 }
 
@@ -138,7 +120,7 @@
     [defaults setBool:[weather state] forKey:@"Weather"];
     [defaults setBool:[animated state] forKey:@"Animated"];
     [defaults synchronize];
-    
+
     [[NSApplication sharedApplication] endSheet:configSheet];
 }
 
