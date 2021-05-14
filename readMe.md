@@ -1,6 +1,6 @@
 # A17 Time Zones Screen Saver
 
-v.1.0.23
+v2.0.0
 
 Displays <a href="https://time.area17.com/" target="blank">time.area17.com</a> within a macOS screen saver. Passes controllable parameters to control the display of clock type, clock format, temperature units and display of temperature and weather; more info on these parameters in the [time repository](https://github.com/area17/time).
 
@@ -20,10 +20,14 @@ As this was built by a FE developer its likely to be a bit rough around the edge
 
 Tested in macOS versions:
 
-* 10.12
-* 10.11
+* 10.15 Catalina
+* 11 Big Sur
 
-*Should* work in 10.10 and 10.13...
+*Should* work in 10.10 Yosemite and newer...
+
+## Version 2
+
+Updates the screen saver to use `WKWebView` and to no longer use any deprecated methods. Shout out to this [commit](https://github.com/brockgr/websaver/commit/3a80fc4daee2f9efc82cf57d223963af12dd5970) by [brockgr](https://github.com/brockgr).
 
 ## Author
 
