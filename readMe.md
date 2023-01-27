@@ -1,6 +1,6 @@
 # A17 Time Zones Screen Saver
 
-v2.0.0
+v2.0.1
 
 Displays <a href="https://time.area17.com/" target="blank">time.area17.com</a> within a macOS screen saver. Passes controllable parameters to control the display of clock type, clock format, temperature units and display of temperature and weather; more info on these parameters in the [time repository](https://github.com/area17/time).
 
@@ -18,16 +18,21 @@ As this was built by a FE developer its likely to be a bit rough around the edge
 
 ## Support
 
-Tested in macOS versions:
+Tested in macOS version:
 
-* 10.15 Catalina
-* 11 Big Sur
+* 12.6 macOS Monterey
 
-*Should* work in 10.10 Yosemite and newer...
+*Should* work in 10.13 High Sierra and newer...
 
 ## Version 2
 
 Updates the screen saver to use `WKWebView` and to no longer use any deprecated methods. Shout out to this [commit](https://github.com/brockgr/websaver/commit/3a80fc4daee2f9efc82cf57d223963af12dd5970) by [brockgr](https://github.com/brockgr).
+
+### v2.0.1
+
+* removes credit for Dark Sky as [time.area17.com](https://time.area17.com/) no uses [Visual Crossing](https://www.visualcrossing.com/) and the credit for this is going to be visible in the screen saver rather than the preferences panel.
+* updates build target to 10.13 High Sierra and up
+* builds to working directory, build gitignored
 
 ## Author
 
