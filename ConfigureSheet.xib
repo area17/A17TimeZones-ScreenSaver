@@ -30,9 +30,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cgU-CJ-ST5">
-                        <rect key="frame" x="69" y="285" width="66" height="17"/>
+                        <rect key="frame" x="8" y="285" width="180" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="AREA 17" id="8IZ-Vh-Rfw">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="time.area17.com" id="8IZ-Vh-Rfw">
                             <font key="font" metaFont="systemBold" size="14"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -152,9 +152,9 @@ DQ
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gK9-Fa-p2J" userLabel="v1.0.26">
-                        <rect key="frame" x="8" y="20" width="75" height="11"/>
+                        <rect key="frame" x="8" y="20" width="41" height="11"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="time.area17.com" usesSingleLineMode="YES" id="bNy-4l-MeC">
+                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="AREA 17" usesSingleLineMode="YES" id="bNy-4l-MeC">
                             <font key="font" metaFont="miniSystem"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
